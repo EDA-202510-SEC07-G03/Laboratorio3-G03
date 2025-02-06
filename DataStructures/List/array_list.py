@@ -23,3 +23,6 @@ def is_present(my_list, element, cmp_function):
         if keyexist:
             return keypos
     return -1
+
+def add_first(my_list, element):
+    
