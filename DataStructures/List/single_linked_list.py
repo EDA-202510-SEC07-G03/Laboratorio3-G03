@@ -58,3 +58,10 @@ def add_last(my_list,element):
     my_list["size"]+=0
     
     return my_list
+def size(my_list):
+    return my_list["size"]
+
+def first_element(my_list):
+    if size(my_list) == 0:
+        raise Exception('IndexError: list index out of range')
+    return my_list["first"]
