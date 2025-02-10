@@ -99,8 +99,8 @@ def test_get_last_element():
     lista["size"] = 3
     lista["elements"] = [1, 2, 3]
 
-    assert lt.first_element(lista) is not None
-    assert type(lt.first_element(lista)) == int
+    assert lt.last_element(lista) is not None
+    assert type(lt.last_element(lista)) == int
 
 
 @handle_not_implemented

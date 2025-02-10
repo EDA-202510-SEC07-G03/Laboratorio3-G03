@@ -1,4 +1,4 @@
-import list_node as ln
+from DataStructures.List import list_node as ln
 
 def new_list():
     newlist={"first":None,
@@ -48,8 +48,6 @@ def add_last(my_list,element):
     Añade un elemento al final de la estructura de datos
     """
     new_node=ln.new_single_node(element)
-    new_node["next"]=None
-    my_list["last"]["next"]=new_node
     my_list["last"]=new_node
     
     if my_list["size"]==0:
