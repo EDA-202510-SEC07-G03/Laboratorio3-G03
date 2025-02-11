@@ -6,8 +6,10 @@ def new_list():
     return newlist
 
 def get_element(my_list, index):
-    
-    return my_list["elements"][index]
+    if 0<=index<=my_list["size"]:
+        return my_list["elements"][index]
+    else:
+        return "IndexError: list index out of range"
 
 
 def is_present(my_list, element, cmp_function):
@@ -45,45 +47,71 @@ def is_empty(my_list):
     return result
 
 def first_element(my_list):
-    return my_list["elements"][0]
+    if my_list["elements"][0] == None:
+        return "IndexError: list index out of range"
+    else:
+        return my_list["elements"][0]
 
 def last_element(my_list):
-    return my_list["elements"][-1]
+    if my_list["elements"][0] == None:
+        return "IndexError: list index out of range"
+    else:
+        return my_list["elements"][-1]
 
 def remove_first(my_list):
-    my_list["elements"].pop(0)
-    my_list["size"] -= 1
-    return my_list
+    if my_list == None:
+        return "IndexError: list index out of range"
+    else:
+        first_element = my_list["elements"][0]
+        my_list["elements"].pop(0)
+        my_list["size"] -= 1
+        return first_element
 
 def remove_last(my_list):
-    my_list["elements"].pop()
-    my_list["size"] += 1
-    return my_list
+    if my_list == None:
+        return "IndexError: list index out of range"
+    else:
+        last_element = my_list["elements"][-1]
+        my_list["elements"].pop()
+        my_list["size"] += 1
+        return last_element
 
 def insert_element(my_list, element, pos):
     my_list["elements"].insert(pos,element)
     my_list["size"] += 1
     return my_list
 
-def delete_element(my_list, element):
-    my_list["elements"].pop(element)
-    my_list["size"] -= 1
-    return my_list
+def delete_element(my_list, pos):
+    if 0<=pos<=my_list["size"]:
+        my_list["elements"].pop(pos)
+        my_list["size"] -= 1
+        return my_list
+    else:
+        return "IndexError: list index out of range"
 
 def change_info(my_list, pos, new_info):
-    my_list["elements"][pos] = new_info
-    return my_list
+    if 0<=pos<=my_list["size"]:
+        my_list["elements"][pos] = new_info
+        return my_list
+    else:
+        return "IndexError: list index out of range"
 
 def exchange(my_list, pos_1, pos_2):
-    pos1 = my_list["elements"][pos_1]
-    pos2 = my_list["elements"][pos_2]
-    my_list["elements"][pos_1] = pos2
-    my_list["elements"][pos_2] = pos1
-    return my_list
+    if 0<=pos_1<=my_list["size"] and 0<=pos_2<=my_list["size"]:
+        pos1 = my_list["elements"][pos_1]
+        pos2 = my_list["elements"][pos_2]
+        my_list["elements"][pos_1] = pos2
+        my_list["elements"][pos_2] = pos1
+        return my_list
+    else:
+        return "IndexError: list index out of range"
     
 def sub_list(my_list, pos_i, num_elements):
-    sub_list = new_list()
-    sub_list["size"] = num_elements
-    for i in range(pos_i, pos_i+num_elements):
-        sub_list["elements"].append(my_list["elements"][i])
-    return sub_list
+    if 0<=pos_i<=my_list["size"]:
+        sub_list = new_list()
+        sub_list["size"] = num_elements
+        for i in range(pos_i, pos_i+num_elements):
+            sub_list["elements"].append(my_list["elements"][i])
+        return sub_list
+    else:
+        return "IndexError: list index out of range"
