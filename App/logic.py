@@ -100,7 +100,7 @@ def load_tags(catalog):
     :return: El número de tags cargados
     """
     # TODO Implementar la carga de los tags
-    tagsfile = data_dir + 'GoodReads/tags-medium.csv'
+    tagsfile = data_dir + 'GoodReads/tags.csv'
     input_file = csv.DictReader(open(tagsfile, encoding='utf-8'))
     for tag in input_file:
         add_tag(catalog, tag)
@@ -120,7 +120,7 @@ def load_books_tags(catalog):
     booktagsfile = data_dir + 'GoodReads/book_tags-medium.csv'
     input_file = csv.DictReader(open(booktagsfile, encoding='utf-8'))
     for book_tag in input_file:
-        add_tag(catalog, book_tag)
+        add_book_tag(catalog, book_tag)
     return tag_size(catalog)
 
 
@@ -148,7 +148,7 @@ def get_best_book(catalog):
     """
     # TODO Implementar la función del mejor libro por rating
     best = None
-    for book in catalog('books'):
+    for book in catalog:
         a = compare_ratings(book, best)
         if a == True:
             best = book
